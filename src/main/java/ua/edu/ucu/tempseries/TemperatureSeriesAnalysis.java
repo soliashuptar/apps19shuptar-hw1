@@ -63,7 +63,7 @@ public class TemperatureSeriesAnalysis {
     public double min() {
         isEmpty();
         double minValue = Double.MAX_VALUE;
-        for (int i = 0; i < arrLen; i ++){
+        for (int i = 0; i < arrLen; i++) {
             if (tempArray[i] < minValue) {
                 minValue =  tempArray[i];
             }
@@ -101,9 +101,11 @@ public class TemperatureSeriesAnalysis {
         isEmpty();
         double difference = Double.MAX_VALUE;
         for (int i = 0; i < arrLen; i++) {
-            if (Math.abs(tempArray[i] - tempValue) < Math.abs(difference - tempValue)) {
+            if (Math.abs(tempArray[i] - tempValue) <
+                    Math.abs(difference - tempValue)) {
                 difference = tempArray[i];
-            } else if (Math.abs(tempArray[i] - tempValue) == Math.abs(difference - tempValue)) {
+            } else if (Math.abs(tempArray[i] - tempValue) ==
+                    Math.abs(difference - tempValue)) {
                 difference = Math.abs(tempArray[i]);
             }
         }
@@ -157,17 +159,15 @@ public class TemperatureSeriesAnalysis {
         isValid(temps);
         int len = tempArray.length;
         if (temps.length + len > tempArray.length) {
-            int newSize = Math.max(tempArray.length + temps.length, tempArray.length * 2);
+            int newSize = Math.max(tempArray.length +
+                    temps.length, tempArray.length * 2);
 
             double[] newTemp = new double[newSize];
             System.arraycopy(tempArray,0, newTemp,0, tempArray.length);
             tempArray = newTemp;
             System.gc();
         }
-
         arrLen += temps.length;
-
         return arrLen;
-
         }
     }
