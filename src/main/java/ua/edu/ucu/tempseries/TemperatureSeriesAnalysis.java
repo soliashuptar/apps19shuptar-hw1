@@ -3,8 +3,8 @@ import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysis {
 
-    final static public double MINTEMP = -273.0;
     final static public double EPSILON = 0.0000001;
+    final static public double MINTEMP = -273.0;
     private double[] tempArray;
     private int arrLen;
 
