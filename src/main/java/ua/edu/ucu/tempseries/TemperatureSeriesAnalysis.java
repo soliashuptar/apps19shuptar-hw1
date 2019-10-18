@@ -5,20 +5,7 @@ public class TemperatureSeriesAnalysis {
 
     private double[] tempArray;
     private int arrLen;
-
-    public void isEmpty(){
-        if (arrLen == 0) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    public void isValid(double[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < -273.0) {
-                throw new InputMismatchException();
-            }
-        }
-    }
+    final static public double MINTEMP = -273.0;
 
     public TemperatureSeriesAnalysis() {
         this.tempArray = new double[] {0};
@@ -32,6 +19,20 @@ public class TemperatureSeriesAnalysis {
         this.tempArray = temperatureSeries;
         arrLen = tempArray.length;
 
+    }
+
+    public void isEmpty() {
+        if (arrLen == 0) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void isValid(double[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < MINTEMP) {
+                throw new InputMismatchException();
+            }
+        }
     }
 
     public double average() {
