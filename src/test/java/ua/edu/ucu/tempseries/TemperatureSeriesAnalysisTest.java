@@ -22,7 +22,6 @@ public class TemperatureSeriesAnalysisTest {
         assertEquals(expResult, actualResult, 0.00001);
     }
 
-//    @Ignore
     @Test(expected = IllegalArgumentException.class)
     public void testAverageWithEmptyArray() {
         double[] temperatureSeries = {};
@@ -32,7 +31,6 @@ public class TemperatureSeriesAnalysisTest {
         seriesAnalysis.average();
     }
 
-//    @Ignore
     @Test
     public void testAverage() {
         double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
@@ -56,7 +54,6 @@ public class TemperatureSeriesAnalysisTest {
 
         assertEquals(expResult, actualResult, 0.00001);
 
-//        assertEquals();
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -70,6 +67,8 @@ public class TemperatureSeriesAnalysisTest {
     public void testMin() {
       double[] temperatureSeries = { 2.5, 3.0, 8.7, 100.0, -780.0};
       TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
+
+      // expected InputMismatchException
 
       double expValue = -780.0;
       double realValue = seriesAnalysis.min();
@@ -177,7 +176,6 @@ public class TemperatureSeriesAnalysisTest {
         double[] temperatureSeries = {-0.5, 0.5, 3.0, 8.7, 49.9, 100.0};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
 
-//        {-0.5, 0.5, 3.0, 8.7, 49.9, 100.0, -780.0}
 
         TempSummaryStatistics expValue = new TempSummaryStatistics(seriesAnalysis.average(), seriesAnalysis.deviation(),
                 seriesAnalysis.min(), seriesAnalysis.max());
@@ -195,7 +193,6 @@ public class TemperatureSeriesAnalysisTest {
     @Test
     public void testaddTemps() {
         double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
-//        3.0, -5.0, 1.0, 5.0 , 4.5, 3.0 , -2.0
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
         double expResult = 7;
 
@@ -207,7 +204,6 @@ public class TemperatureSeriesAnalysisTest {
 
     @Test
     public void testaddTempsWithEmptyArray() {
-//        double[] temperatureSeries = {};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis();
         double expResult = 3;
 

@@ -3,9 +3,9 @@ import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysis {
 
+    final static public double MINTEMP = -273.0;
     private double[] tempArray;
     private int arrLen;
-    final static public double MINTEMP = -273.0;
 
     public TemperatureSeriesAnalysis() {
         this.tempArray = new double[] {0};
@@ -101,11 +101,11 @@ public class TemperatureSeriesAnalysis {
         isEmpty();
         double difference = Double.MAX_VALUE;
         for (int i = 0; i < arrLen; i++) {
-            if (Math.abs(tempArray[i] - tempValue) <
-                    Math.abs(difference - tempValue)) {
+            if (Math.abs(tempArray[i] - tempValue) < Math.abs(
+                    difference - tempValue)) {
                 difference = tempArray[i];
-            } else if (Math.abs(tempArray[i] - tempValue) ==
-                    Math.abs(difference - tempValue)) {
+            } else if (Math.abs(tempArray[i] - tempValue) == Math.abs(
+                    difference - tempValue)) {
                 difference = Math.abs(tempArray[i]);
             }
         }
@@ -159,8 +159,8 @@ public class TemperatureSeriesAnalysis {
         isValid(temps);
         int len = tempArray.length;
         if (temps.length + len > tempArray.length) {
-            int newSize = Math.max(tempArray.length +
-                    temps.length, tempArray.length * 2);
+            int newSize = Math.max(tempArray.length + temps.length,
+                    tempArray.length * 2);
 
             double[] newTemp = new double[newSize];
             System.arraycopy(tempArray,0, newTemp,0, tempArray.length);
