@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 public class TemperatureSeriesAnalysis {
 
     final static public double MINTEMP = -273.0;
+    final static public double EPSILON = 0.0000001;
     private double[] tempArray;
     private int arrLen;
 
@@ -90,7 +91,7 @@ public class TemperatureSeriesAnalysis {
             if (Math.abs(tempArray[i]) < Math.abs(difference)) {
                 difference = tempArray[i];
             }
-            else if (Math.abs(tempArray[i]) == Math.abs(difference)) {
+            else if (Math.abs(tempArray[i]) - Math.abs(difference) < EPSILON) {
                 difference = Math.abs(tempArray[i]);
             }
         }
@@ -101,8 +102,8 @@ public class TemperatureSeriesAnalysis {
         isEmpty();
         double difference = Double.MAX_VALUE;
         for (int i = 0; i < arrLen; i++) {
-            if (Math.abs(tempArray[i] - tempValue) < Math.abs(
-                    difference - tempValue)) {
+            if (Math.abs(tempArray[i] - tempValue) - Math.abs(
+                    difference - tempValue) < EPSILON) {
                 difference = tempArray[i];
             } else if (Math.abs(tempArray[i] - tempValue) == Math.abs(
                     difference - tempValue)) {
